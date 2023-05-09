@@ -90,7 +90,6 @@ def getMerakiNetworkList(orgId):
     for network in networkList:
         if "appliance" in network["productTypes"]:
             networkListFiltered.append(network)
-            print(network["name"])
 
     return networkListFiltered
 
