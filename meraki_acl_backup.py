@@ -11,6 +11,7 @@ import random
 import meraki
 import sys
 import json
+import getpass
 
 
 def merakiError(e):
@@ -35,14 +36,14 @@ def setupScript():
     """
     Function to setup the script,  including input of required variables and creating the backup folder structure. 
 
-    In an attempt to not overwrite existing backups if the folder alredy exists, it will add a two digit number to the end of the path.
+    In an attempt to not overwrite existing backups if the folder alredy exists, it will add a random two digit number to the end of the path.
 
     Returns:
         apiKey(String): API Key to authenticate against the Meraki API (RW or RO).
         orgId(String): Unique Org Id of the Meraki organisation that this script should run against.
         backupFolderpath(String): Folder path of where to save backup files.
     """
-    apiKey = input("Please enter your Meraki API Key: ")
+    apiKey = getpass.getpass(prompt="API Key: ")
     orgId = input("Please enter your Meraki OrgId: ")
     backupFolderName = input(
         "Please enter the of the folder to save backups to: ")
