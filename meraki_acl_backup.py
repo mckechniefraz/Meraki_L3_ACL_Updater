@@ -140,5 +140,4 @@ if "__main__" == __name__:
     merakiNetworkList = getMerakiNetworkList(orgId=orgId)
 
     for network in merakiNetworkList:
-        print(type(network))
         backupL3Acl(networkInfo=network, backupPath=backupFolderPath)
