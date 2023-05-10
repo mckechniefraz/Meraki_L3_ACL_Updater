@@ -37,21 +37,30 @@ pip3 install -r requirements.txt
 ```
 
 ### Executing program
-
+## Backup Script
 Before running the script please ensure you have
-* Meraki API Key.
+
+* Meraki API Key (RO or RW).
 * Meraki Organisation ID.
 * If running a virtual environment, ensure this is activated.
 * Installed the required packages from requirements.txt.
-* If running the update script, ensure the newrules.json is updated.
-
-Run backup script
 
 ```
 python3 meraki_acl_backup.py
 ```
 
-Run update script
+## Update Script
+Before running the script please ensure you have
+
+* Meraki API Key (RW).
+* Meraki Organisation ID.
+* If running a virtual environment, ensure this is activated.
+* Installed the required packages from requirements.txt.
+* Update newrules.json with the new rule(s) you want to add.
+
+The script will make the following two assumptions:
+* Your default Deny rule has a comment of 'Deny_Any_Any'
+* There is only the default rule using the comment of 'Default rule'
 
 ```
 python3 meraki_acl_update.py
