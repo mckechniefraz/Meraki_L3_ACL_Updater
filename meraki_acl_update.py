@@ -11,6 +11,7 @@ import random
 import meraki
 import sys
 import json
+import getpass
 
 
 def merakiError(e):
@@ -42,7 +43,7 @@ def setupScript():
         orgId(String): Unique Org Id of the Meraki organisation that this script should run against.
         backupFolderpath(String): Folder path of where to save backup files.
     """
-    apiKey = input("Please enter your Meraki API Key: ")
+    apiKey = getpass.getpass(prompt="API Key: ")
     orgId = input("Please enter your Meraki OrgId: ")
     backupFolderName = input(
         "Please enter the of the folder to save backups to: ")
